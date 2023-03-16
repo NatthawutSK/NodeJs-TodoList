@@ -32,7 +32,7 @@ const List = mongoose.model("List",listSchema);
 
 // ถ้าไม่มี item อยู่เลย จะ add defaultitem ให้อัตโนมัติ
 // ถ้ามีก็ให้ render ไปที่หน้า home พร้อมส่ง item ที่เจอ กับ list ทั้งหมด ไปแสดง
-app.get("/home",(req,res)=>{
+app.get(["/home","/"],(req,res)=>{
     Item.find({},(err,foundItem)=>{
         if(foundItem.length===0){
             Item.insertMany(defaultItems,(err)=>{
